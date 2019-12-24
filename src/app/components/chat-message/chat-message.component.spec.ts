@@ -22,4 +22,8 @@ describe('ChatMessageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should show timestamp`, () => {});
+  it(`should show sender's name`, () => { });
+  it(`should show message's body`, () => { });
 });
