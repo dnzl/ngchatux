@@ -51,9 +51,6 @@ describe('ChatComposeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should be at the bottom of the screen`, () => {
-  });
-
   it(`should have an input field`, () => {
     expect(input).toBeTruthy();
   });
