@@ -90,7 +90,6 @@ describe('InputNameComponent', () => {
     const event = new KeyboardEvent('keyup', {
       key: 'Enter'
     });
-
     const newName = 'Amidala';
     const nameControl = component.nameControl;
     const input = fixture.debugElement.query(By.css('.input-name'));

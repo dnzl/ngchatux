@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChatFeedComponent } from './chat-feed.component';
 import { ChatMessageComponent } from '../chat-message/chat-message.component';
 import { ChatComposeComponent } from '../chat-compose/chat-compose.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('ChatFeedComponent', () => {
   let component: ChatFeedComponent;
@@ -14,6 +15,10 @@ describe('ChatFeedComponent', () => {
         ChatFeedComponent,
         ChatMessageComponent,
         ChatComposeComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule
       ]
     })
     .compileComponents();
