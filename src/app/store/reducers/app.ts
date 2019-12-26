@@ -8,8 +8,12 @@ export interface AppState {
 }
 
 export const initialState: AppState = {
-    user: null,
-    messages: []
+    user: {
+        name: 'Guest'
+    },
+    messages: [
+      {sender: 'ChatBot', timestamp: Date.now(), body: 'Welcome!'},
+    ]
 };
 
 export function reducer(state = initialState, action: appActions.Actions): AppState {

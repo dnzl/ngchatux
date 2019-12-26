@@ -1,5 +1,5 @@
-<div class="form-message row">
-    <div class="col col-10">
+<div class="form-message">
+    <div class="elm-input">
         <input  class="input-message form-control" 
                 type="text" 
                 placeholder="Write a message"
@@ -7,7 +7,7 @@
                 [formControl]="messageControl"
         >
     </div>
-    <div class="col col-2">
+    <div class="elm-send">
         <button class="btn-send btn btn-sm btn-primary" 
                 type="submit" 
                 (click)="sendMessage()"

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
 
 import { ChatMessageComponent } from './chat-message.component';
+import { By } from 'protractor';
 
 describe('ChatMessageComponent', () => {
   let component: ChatMessageComponent;
@@ -64,5 +65,35 @@ describe('ChatMessageComponent', () => {
     fixture.detectChanges();
     const innerHTML = fixture.debugElement.nativeElement.innerHTML;
     expect(innerHTML).toContain(body);
+  });
+
+  it(`should have class .mine if message is mine`, () => {
+    const name = 'Mario';
+    const body = `It's a me! ${name}`;
+    component.user = { name };
+    component.message = {
+      sender: name,
+      timestamp: Date.now(),
+      body
+    };
+
+    fixture.detectChanges();
+    const div = fixture.debugElement.nativeElement.query(By.css('.message'));
+    expect(div).toHaveClass('mine');
+  });
+
+
+  it(`should not have class .mine if message is not mine`, () => {
+    const name = 'Leia Organa';
+    const body = 'Help me, Obi-Wan Kenobi. You’re my only hope.';
+    component.message = {
+      sender: name,
+      timestamp: Date.now(),
+      body
+    };
+
+    fixture.detectChanges();
+    const div = fixture.debugElement.nativeElement.query(By.css('.message'));
+    expect(div).not.toHaveClass('mine');
   });
 });

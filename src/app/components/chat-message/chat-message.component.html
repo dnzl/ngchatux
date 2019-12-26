@@ -1,7 +1,9 @@
-<div *ngIf="message">
-    <strong class="sender">{{message.sender || 'Guest'}}</strong>
-    <div class="body">
-        <p>{{message.body}}</p>
+<div class="message" [class.mine]="isMine()" *ngIf="message">
+    <div class="message-content">
+        <strong class="sender">{{message.sender || 'Guest'}}</strong>
+        <div class="body">
+            <p>{{message.body}}</p>
+        </div>
+        <span class="timestamp">{{message.timestamp | date:'hh:mm'}}</span>
     </div>
-    <span class="timestamp">{{message.timestamp | date:'hh:mm'}}</span>
 </div>
