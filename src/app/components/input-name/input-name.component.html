@@ -1,5 +1,24 @@
-<div id="INSERT_NAME_COMPONENT">
-    <h1>Hi NAME</h1>
-    <input class="input-name" type="name" placeholder="Insert your name">
-    <button class="btn-submit" type="submit">Change</button>
+<div class="content">
+    <div class="welcome" *ngIf="(name$ | async) as name; else formName">
+        <h1 id="txtWelcome">Welcome {{name}}!</h1>
+        <button class="btn btn-sm btn-primary"
+                id="btnChangeName"
+                (click)="resetName()"
+        >Change name</button>
+    </div>
+
+    <ng-template #formName>
+      <div class="form-name">
+        <input  class="input-name form-control"
+                type="text"
+                placeholder="Insert your name"
+                (keyup.enter)="saveName()"
+                [formControl]="nameControl"
+        >
+        <button class="btn-submit btn btn-sm btn-primary"
+                type="submit"
+                (click)="saveName()"
+        >Set Name</button>
+      </div>
+    </ng-template>
 </div>
