@@ -1,3 +1,11 @@
-<div class="feed-container">
-    <app-chat-message></app-chat-message>
+<div class="feed-container" *ngIf="(messages$ | async).length; else emptyState">
+    <app-chat-message
+      *ngFor="let message of (messages$ | async)"
+      [message]="message"
+    ></app-chat-message>
 </div>
+<ng-template #emptyState>
+  <div class="empty-state">
+    <strong>No messages</strong>
+  </div>
+</ng-template>

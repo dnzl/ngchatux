@@ -7,7 +7,6 @@ import * as fromApp from '../../store/reducers';
 
 import { ChatComposeComponent } from './chat-compose.component';
 import { Message } from 'src/app/interfaces/message';
-import { AppState } from 'src/app/store/reducers/app';
 
 describe('ChatComposeComponent', () => {
   let component: ChatComposeComponent;

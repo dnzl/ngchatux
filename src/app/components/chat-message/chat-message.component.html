@@ -1,7 +1,7 @@
-<div id="MESSAGE_COMPONENT">
-    <strong class="sender">NAME</strong>
+<div *ngIf="message">
+    <strong class="sender">{{message.sender || 'Guest'}}</strong>
     <div class="body">
-        <p>MESSAGE</p>
+        <p>{{message.body}}</p>
     </div>
-    <span class="timestamp">TIMESTAMP</span>
+    <span class="timestamp">{{message.timestamp | date:'hh:mm'}}</span>
 </div>
