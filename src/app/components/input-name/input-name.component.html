@@ -1,6 +1,8 @@
 <div class="content">
     <div class="welcome" *ngIf="(name$ | async) as name; else formName">
-        <h1 id="txtWelcome">Welcome {{name}}!</h1>
+        <h1 id="txtWelcome">
+                Welcome <span>{{name}}</span>!
+        </h1>
         <button class="btn btn-sm btn-primary"
                 id="btnChangeName"
                 (click)="resetName()"

@@ -13,7 +13,7 @@ import { Message } from '../../interfaces/message';
 })
 export class ChatFeedComponent implements OnInit, AfterViewChecked {
   messages$: Observable<Message[]>;
-  autoScroll: boolean = true;
+  autoScroll = true;
 
   @ViewChild('messagesFeedContainer', { static: false })
   private messagesFeedContainer: ElementRef;
