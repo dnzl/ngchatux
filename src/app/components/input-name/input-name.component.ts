@@ -33,6 +33,8 @@ export class InputNameComponent implements OnInit {
       return;
     }
     this.store.dispatch(new appActions.SetName(name));
+
+    this.store.dispatch(new appActions.SendWelcomeMessage());
   }
 
 }

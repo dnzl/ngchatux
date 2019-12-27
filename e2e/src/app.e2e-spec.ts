@@ -16,9 +16,22 @@ describe('workspace-project App', () => {
     } as logging.Entry));
   });
 
-  it('should display insert name input', () => {
+  it('should display insert name input, and send welcome message after changing name', () => {
+    const username = 'Usagi Tsukino';
     page.navigateTo();
     expect(page.getInputUsername()).toBeTruthy();
+
+    page.getInputUsername().sendKeys(username);
+    page.getSubmitNameButton().click();
+    expect(page.getUsername()).toEqual(username);
+
+    const messagesList = page.getMessageFeed().all(by.className('message'));
+    expect(messagesList.count()).toBeGreaterThan(0);
+
+    const lastMessage = messagesList.last();
+    expect(lastMessage.$('.body').getText()).toContain(`Welcome ${username}!`);
+    expect(lastMessage.$('.sender').getText()).toContain('Bot');
+
   });
 
   it(`should change name and send message, then display message with new name in the feed`, () => {
@@ -27,7 +40,6 @@ describe('workspace-project App', () => {
     page.navigateTo();
 
     // change name
-    // page.getChangeNameButton().click();
     page.getInputUsername().sendKeys(username);
     page.getSubmitNameButton().click();
     expect(page.getUsername()).toEqual(username);

@@ -22,6 +22,18 @@ export function reducer(state = initialState, action: appActions.Actions): AppSt
                     name: action.payload
                 }
             };
+        case types.sendWelcomeMessage: {
+            let messages = [...state.messages];
+            messages.push({
+                sender: 'Bot',
+                timestamp: Date.now(),
+                body:`Welcome ${state.user.name}!`,
+            });
+            return {
+                ...state,
+                messages
+            };
+        }
         case types.sendMessage:
         case types.receiveMessage:
             const messages = [...state.messages];

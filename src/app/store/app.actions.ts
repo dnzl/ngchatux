@@ -4,6 +4,7 @@ import { Message } from '../interfaces/message';
 export enum ChatAppActionTypes {
     setName = '[Column] Set Name',
     sendMessage = '[Chat Composer] Send Message',
+    sendWelcomeMessage = '[Chat Bot] Send Welcome Message',
     receiveMessage = '[API] Receive Message'
 }
 
@@ -17,6 +18,10 @@ export class SendMessage implements Action {
     constructor(public payload: Message) { }
 }
 
+export class SendWelcomeMessage implements Action {
+    readonly type = ChatAppActionTypes.sendWelcomeMessage;
+}
+
 export class ReceiveMessage implements Action {
     readonly type = ChatAppActionTypes.receiveMessage;
     constructor(public payload: Message) { }
@@ -25,5 +30,6 @@ export class ReceiveMessage implements Action {
 export type Actions =
     | SetName
     | SendMessage
+    | SendWelcomeMessage
     | ReceiveMessage
 ;
