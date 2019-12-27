@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { StoreModule, Store } from '@ngrx/store';
 import * as fromApp from '../../store/reducers';
-import * as appActions from 'src/app/store/app.actions';
+import * as appActions from '../../store/app.actions';
 
 import { InputNameComponent } from './input-name.component';
 
@@ -64,8 +64,8 @@ describe('InputNameComponent', () => {
   it('should display welcome message if name was saved', fakeAsync(() => {
     store.dispatch(new appActions.SetName('Luke Skywalker'));
     fixture.detectChanges();
-    const welcome = fixture.debugElement.query(By.css('#txtWelcome')).nativeElement;
-    expect(welcome.innerHTML).toContain('Welcome Luke Skywalker');
+    const welcome = fixture.debugElement.query(By.css('#txtWelcome span')).nativeElement;
+    expect(welcome.innerHTML).toContain('Luke Skywalker');
   }));
 
   it('should hide welcome message if no name was saved', fakeAsync(() => {
@@ -76,6 +76,8 @@ describe('InputNameComponent', () => {
   }));
 
   it(`should save name on click`, fakeAsync(() => {
+    store.dispatch(new appActions.SetName(null));
+    fixture.detectChanges();
     const newName = 'Padme';
     const nameControl = component.nameControl;
     const submit = fixture.debugElement.query(By.css('.btn-submit'));

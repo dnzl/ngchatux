@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewChecked, ViewChild, ElementRef } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import * as fromApp from '../../store/reducers';
 

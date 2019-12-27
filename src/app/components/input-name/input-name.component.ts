@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import * as fromApp from '../../store/reducers';
-import * as appActions from 'src/app/store/app.actions';
 import { FormControl, Validators } from '@angular/forms';
+
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import * as fromApp from '../../store/reducers';
+import * as appActions from '../../store/app.actions';
 
 @Component({
   selector: 'app-input-name',

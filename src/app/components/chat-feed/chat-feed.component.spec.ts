@@ -67,7 +67,7 @@ describe('ChatFeedComponent', () => {
     expect(emptyState).toBeFalsy();
   });
 
-  it(`should show messages is there are messages`, () => {
+  it(`should show messages if there are messages`, () => {
     const msg = 'Hello there!';
     addMessage(msg);
     fixture.detectChanges();

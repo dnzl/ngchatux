@@ -1,4 +1,4 @@
-<div class="message" [class.mine]="isMine()" *ngIf="message">
+<div *ngIf="message" class="message" [class.mine]="isMine()">
     <div class="message-content">
         <strong class="sender">{{message.sender || 'Guest'}}</strong>
         <div class="body">

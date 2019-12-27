@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
+
 import * as fromApp from '../../store/reducers';
+
 import { Message } from '../../interfaces/message';
 import { User } from '../../interfaces/user';
 
@@ -20,6 +22,6 @@ export class ChatMessageComponent implements OnInit {
   }
 
   isMine(): boolean {
-    return this.message.sender === this.user.name;
+    return this.user && this.message.sender === this.user.name;
   }
 }

@@ -1,10 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Store } from '@ngrx/store';
-import * as fromApp from '../../store/reducers';
-import * as appActions from 'src/app/store/app.actions';
 import { FormControl } from '@angular/forms';
-import { Message } from 'src/app/interfaces/message';
+
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+
+import * as fromApp from '../../store/reducers';
+import * as appActions from '../../store/app.actions';
+import { Message } from '../../interfaces/message';
 
 @Component({
   selector: 'app-chat-compose',

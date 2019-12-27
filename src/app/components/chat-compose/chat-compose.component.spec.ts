@@ -6,7 +6,7 @@ import { StoreModule, Store } from '@ngrx/store';
 import * as fromApp from '../../store/reducers';
 
 import { ChatComposeComponent } from './chat-compose.component';
-import { Message } from 'src/app/interfaces/message';
+import { Message } from '../../interfaces/message';
 
 describe('ChatComposeComponent', () => {
   let component: ChatComposeComponent;

@@ -16,9 +16,9 @@ describe('workspace-project App', () => {
     } as logging.Entry));
   });
 
-  it('should display welcome message', () => {
+  it('should display insert name input', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome Guest!');
+    expect(page.getInputUsername()).toBeTruthy();
   });
 
   it(`should change name and send message, then display message with new name in the feed`, () => {
@@ -27,7 +27,7 @@ describe('workspace-project App', () => {
     page.navigateTo();
 
     // change name
-    page.getChangeNameButton().click();
+    // page.getChangeNameButton().click();
     page.getInputUsername().sendKeys(username);
     page.getSubmitNameButton().click();
     expect(page.getUsername()).toEqual(username);

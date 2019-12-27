@@ -1,8 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DatePipe } from '@angular/common';
+import { By } from '@angular/platform-browser';
 
 import { ChatMessageComponent } from './chat-message.component';
-import { By } from 'protractor';
+import { StoreModule } from '@ngrx/store';
+import * as fromApp from '../../store/reducers';
 
 describe('ChatMessageComponent', () => {
   let component: ChatMessageComponent;
@@ -11,7 +13,10 @@ describe('ChatMessageComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChatMessageComponent ]
+      declarations: [ ChatMessageComponent ],
+      imports: [
+        StoreModule.forRoot(fromApp.reducers)
+      ]
     })
     .compileComponents();
   }));
@@ -78,10 +83,9 @@ describe('ChatMessageComponent', () => {
     };
 
     fixture.detectChanges();
-    const div = fixture.debugElement.nativeElement.query(By.css('.message'));
+    const div = fixture.debugElement.query(By.css('.message')).nativeElement;
     expect(div).toHaveClass('mine');
   });
-
 
   it(`should not have class .mine if message is not mine`, () => {
     const name = 'Leia Organa';
@@ -93,7 +97,7 @@ describe('ChatMessageComponent', () => {
     };
 
     fixture.detectChanges();
-    const div = fixture.debugElement.nativeElement.query(By.css('.message'));
+    const div = fixture.debugElement.query(By.css('.message')).nativeElement;
     expect(div).not.toHaveClass('mine');
   });
 });
